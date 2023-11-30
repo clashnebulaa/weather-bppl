@@ -37,7 +37,7 @@ const WeatherProvider = ({ children }) => {
     const { lat, lon } = location;
       try {
 
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Queretaro&appid=5bbb114d1dce1b4c1cd15936221ba47e&units=metric`);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=5bbb114d1dce1b4c1cd15936221ba47e&units=metric`);
         const data = await response.data;
         setWeatherData(data);
       } catch (error) {
