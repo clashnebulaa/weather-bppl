@@ -10,7 +10,7 @@ const WeatherProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [location, setLocation] = useState(null);
     // eslint-disable-next-line
-  const [cityName, setCityName] = useState(null)
+    const [dynamicRoute, setDynamicRoute] = useState(''); // Nueva propiedad para la ruta dinámica
 
   // Función para obtener la ubicación del usuario
   const getLocation = () => {
@@ -29,26 +29,22 @@ const WeatherProvider = ({ children }) => {
     }
   };
 
-  const FetchCityData = async (city) => {
-    if(city){
-      setCityName(city)
-    }
-  }
-
+  useEffect(() => {
+    fetchData()
+  }, [dynamicRoute])
 
 
   useEffect(() => {
     getLocation()
   }, [])
 
-  const fetchData = async (customCityName = null) => {
+  const fetchData = async () => {
     if (location) {
     const { lat, lon } = location;
+    const apiEndpoint = dynamicRoute ? dynamicRoute : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`;
+
       try {
-        let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=5bbb114d1dce1b4c1cd15936221ba47e&units=metric`);
-        if(customCityName){
-          response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${customCityName}&appid=5bbb114d1dce1b4c1cd15936221ba47e&units=metric`);
-        }
+        let response = await axios.get(`${apiEndpoint}&appid=5bbb114d1dce1b4c1cd15936221ba47e&units=metric`);
         setWeatherData(response.data);
       } catch (error) {
         setError(error);
@@ -64,7 +60,7 @@ const WeatherProvider = ({ children }) => {
   }, [location])
 
   return (
-    <WeatherContext.Provider value={{ weatherData, loading, error, FetchCityData }}>
+    <WeatherContext.Provider value={{ weatherData, loading, error, setDynamicRoute, dynamicRoute }}>
       {children}
     </WeatherContext.Provider>
   );

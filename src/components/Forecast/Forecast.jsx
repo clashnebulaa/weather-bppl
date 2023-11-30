@@ -11,7 +11,7 @@ const Forecast = () => {
   const { forecastData } = useContext(ForecastContext)
   return ( 
     <>
-      <div className={`${css.card} rounded-lg flex py-[1.25rem] px-[1rem] flex-col gap-4`}>
+      <div className={`${css.card} rounded-lg flex py-[1.25rem] px-[1rem] flex-col gap-4 w-11/12 mx-auto`}>
         <div className="w-full flex items-center gap-2">
           <Calendar /> 
           <h1 className={`${css.interfont} text-[1.5rem] font-bold`}>8-Day Forecast</h1>

@@ -14,3 +14,14 @@
   background: rgba(252, 252, 252, 0.45);
   backdrop-filter: blur(64px);
 }
+
+.sliderBg {
+  background: rgba(252, 252, 252, 0.45);
+  backdrop-filter: blur(64px);
+  
+}
+
+.sliderCard {
+  background: rgba(252, 252, 252, 0.50);
+  position: relative;
+}

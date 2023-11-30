@@ -17,6 +17,7 @@ import shower_rain from '../assets/shower_rain.jpeg'
 import snow from '../assets/snow.jpeg'
 import thunderstorm from '../assets/thunderstorm.jpeg'
 import { ThreeDots } from  'react-loader-spinner'
+import CardSlider from "./CardSlider";
 
 
 
@@ -73,8 +74,8 @@ const LocationCard = () => {
         }}>
 
         </div>
-        <div className="p-2 flex flex-col gap-[1.19rem] relative z-30">
-          <div className="flex flex-col w-full h-auto">
+        <div className="flex flex-col gap-[1.19rem] relative z-30">
+          <div className="flex flex-col w-11/12 mx-auto h-auto">
             <div className="flex gap-4 items-center">
               <div id="icon">
                 <img
@@ -112,7 +113,7 @@ const LocationCard = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-[1.25rem]">
+          <div className="grid grid-cols-3 gap-[1.25rem] w-11/12 mx-auto">
             <div className="col-span-3">
               <WindCard icon={<Wind />} title={'Wind'} wind={weatherData.wind}/>
             </div>
@@ -144,9 +145,8 @@ const LocationCard = () => {
               </div>
             </div>
           </div>
-          <div>
             <Forecast />
-          </div>
+            <CardSlider />
         </div>
       </>
     }
