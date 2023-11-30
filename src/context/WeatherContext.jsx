@@ -9,6 +9,7 @@ const WeatherProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [location, setLocation] = useState(null);
+    // eslint-disable-next-line
   const [cityName, setCityName] = useState(null)
 
   // Función para obtener la ubicación del usuario
