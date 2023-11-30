@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useContext } from 'react';
+import { WeatherProvider } from './context/WeatherContext';
+import LocationCard from './components/LocationCard';
+import css from './style/app.module.css'
+import { ForecastProvider } from './context/ForecastContext';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WeatherProvider>
+      <ForecastProvider>
+        <div className="App">
+          <div className={`py-4`}>
+            <LocationCard />
+          </div>
+        </div>
+      </ForecastProvider>
+    </WeatherProvider>
   );
-}
+};
 
 export default App;

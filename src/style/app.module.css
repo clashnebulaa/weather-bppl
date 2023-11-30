@@ -1,0 +1,16 @@
+.background {
+  background-color: gray;
+}
+
+.card {
+  background: rgba(252, 252, 252, 0.20);
+}
+
+.interfont{
+  font-family: 'Inter', sans-serif;
+}
+
+.blur {
+  background: rgba(252, 252, 252, 0.45);
+  backdrop-filter: blur(64px);
+}
