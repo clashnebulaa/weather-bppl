@@ -48,6 +48,7 @@ const ForecastProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [location]);
 
   return (

@@ -50,6 +50,7 @@ const WeatherProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line
   }, [location])
 
   return (
